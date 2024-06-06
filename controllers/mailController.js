@@ -18,7 +18,7 @@ const sendEmail = async (req, res) => {
         from: process.env.EMAIL,
         to: req.body.to,
         subject: req.body.subject,
-        text: req.body.body + "GitHub Link : ",
+        text: req.body.body + "GitHub Link : https://github.com/dennyneelamkavil/learning-backend",
     });
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
