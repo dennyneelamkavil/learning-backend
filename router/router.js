@@ -9,6 +9,7 @@ const {
 } = require("../controllers/studentController");
 const sendEmail = require("../controllers/mailController");
 const asyncHandler = require("../utils/asyncHandler");
+const createQRCode = require("../controllers/qrCodeGenerator");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");
@@ -34,6 +35,7 @@ router.delete("/student/:id", asyncHandler(deleteStudentById));
 router.put("/student/:id", asyncHandler(updateStudentById));
 
 router.post("/sendemail", asyncHandler(sendEmail));
+router.post("/createQRCode", asyncHandler(createQRCode));
 
 // upload image
 // router.post("/student/imageUpload", upload.single("image"), async (req, res) => {
